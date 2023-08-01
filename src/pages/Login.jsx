@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { signIn } = useAuthContext()
+  const { signIn,signUpProvider } = useAuthContext()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -64,6 +64,7 @@ const Login = () => {
           <button
             type="button"
             className="btn-danger flex justify-between items-center"
+            onClick={()=>signUpProvider()}
           >
             Continue with Google
             <GoogleIcon color="currentColor" />

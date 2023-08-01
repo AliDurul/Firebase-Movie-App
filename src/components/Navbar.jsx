@@ -2,13 +2,16 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import avatar from "../assets/icons/avatar.png";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../context/AuthContext";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+
 export default function Navbar() {
-  const currentUser = {displayName: "Ali Durul"}
+
+  const { logOut, currentUser } = useAuthContext()
   return (
     <>
       <Disclosure
@@ -22,15 +25,16 @@ export default function Navbar() {
             </Link>
             <div className="absolute inset-y-0 right-0 flex items-center ">
               {/* Profile dropdown */}
-              {currentUser && <h5 className="mr-2 capitalize">{currentUser.displayName}</h5> }
+              {currentUser && <h5 className="mr-2 capitalize">{currentUser?.displayName}</h5>}
               <Menu as="div" className="relative ml-3">
                 <div>
                   <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">Open user menu</span>
                     <img
+                      referrerPolicy="no-referrer"
                       className="h-8 w-8 rounded-full"
-                      src={currentUser.photoUrl ||  avatar}
+                      src={currentUser.photoURL || avatar}
                       alt="user"
                     />
                   </Menu.Button>
@@ -74,6 +78,7 @@ export default function Navbar() {
                     <Menu.Item>
                       {({ active }) => (
                         <span
+                          onClick={logOut}
                           className={classNames(
                             active ? "bg-gray-100" : "",
                             "block px-4 py-2 text-sm text-gray-700 cursor-pointer"
