@@ -9,33 +9,38 @@ const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?api_key=${API_
 
 const MovieProvider = ({ children }) => {
 
-    const [movies, setMovies] = useState([])
+  const [movies, setMovies] = useState([])
 
-    useEffect(() => {
-        getData(FEATURED_API)
-    }, [])
+  const [loading, setLoading] = useState(false)
 
-
-    const getData = async (API) => {
-        try {
-          const response = await axios(API)
-          console.log(response);
-          setMovies(response?.data?.results)
-        } catch (error) {
-          console.log(error);
-        }
-      }
+  useEffect(() => {
+    getMovies(FEATURED_API)
+  }, [])
 
 
-    const values = {}
+  const getMovies = async (API) => {
+    setLoading(true)
+    try {
+      const response = await axios(API)
+      setMovies(response?.data?.results)
+    } catch (error) {
+      console.log(error);
+    }
+    finally {
+      setLoading(false); 
+    }
+  }
 
-    return (
-        <MovieContext.Provider value={values}>{children}</MovieContext.Provider>
-    )
+
+  const values = { movies, getMovies,loading }
+
+  return (
+    <MovieContext.Provider value={values}>{children}</MovieContext.Provider>
+  )
 }
 
 export default MovieProvider;
 
 export const useMovieContext = () => {
-    return useContext(MovieContext)
+  return useContext(MovieContext)
 }

@@ -38,8 +38,7 @@ const AuthContextProvider = ({ children }) => {
 
     const signIn = async (email, password) => {
         try {
-            let userCredential = await signInWithEmailAndPassword(auth, email, password)
-            console.log(userCredential);
+            await signInWithEmailAndPassword(auth, email, password)
             toastSuccessNotify("Hey Mr. Man You Are Logged In !")
 
         } catch (error) {
@@ -68,10 +67,11 @@ const AuthContextProvider = ({ children }) => {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
             .then((result) => {
-                console.log(result);
+                toastSuccessNotify("Hey Mr. Man You Are Logged In !")
                 navigate("/")
             }).catch((error) => {
-                console.log(error);
+            toastErrorNotify(`Opps.. ${error.message} `)
+              
             });
     }
 
@@ -82,7 +82,7 @@ const AuthContextProvider = ({ children }) => {
         createUser,
         signIn,
         logOut,
-        userObserver, currentUser,signUpProvider
+        userObserver, currentUser, signUpProvider
     }
 
     return (
