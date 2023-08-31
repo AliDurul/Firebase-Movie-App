@@ -51,7 +51,7 @@ Data fetched from the IMDB API and present it on website, categorized for easy a
 
 [Live Link](https://firebase-movie-app-two.vercel.app)
 
-![LeeLibrirary](https://github.com/AliDurul/Lee-Library/assets/80897590/76766085-6395-4bbd-a285-6acbaab5bedc)
+![movieapp](https://github.com/AliDurul/Firebase-Movie-App/assets/80897590/89c7bdcd-c9f4-4c47-bbd3-f918e1a09de5)
 
 <div id="user-content-toc">
   <ul align="left">
@@ -68,10 +68,9 @@ Thank you for visiting my project. I hope you have a wonderful experience explor
 ## Project Skeleton
 
 ```
-009 - Movie App (folder)
+Movie App (folder)
 |
-|----readme.md         # Given to the students (Definition of the project)
-SOLUTION
+|----readme.md    
 ├── public
 │     └── index.html
 ├── src
