@@ -1,23 +1,23 @@
-import React, {  useState } from "react";
+import React, { useContext, useState } from "react";
 import GoogleIcon from "../assets/icons/GoogleIcon";
-import {  useAuthContext } from "../context/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { createUser,signUpProvider } = useAuthContext()
+  const { createUser, signUpProvider } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const displayName = `${name} ${lastName}`
-    createUser(email, password,displayName);
+    const displayName = `${name} ${lastName}`;
+    createUser(email, password, displayName);
   };
   return (
-    <div className="overflow-hidden flex-1 h-screen justify-center items-center bg-[#23242a]">
+    <div className="overflow-hidden flex-1 h-screen justify-center items-center dark:bg-gray-dark-main">
       <div
-        className={`mt-[3vh] mx-auto overflow-hidden relative w-[380px] h-[620px] rounded-[8px] bg-[#1c1c1c] before:content-[""] before:absolute before:w-[380px] before:h-[420px] before:top-[-50%] before:left-[-50%] after:content-[""] after:absolute after:w-[380px] after:h-[420px] after:top-[-50%] after:left-[-50%] custom-linear-gradient`}
+        className={`mt-[3vh] mx-auto overflow-hidden relative w-[380px] h-[620px] rounded-[8px] dark:bg-[#1c1c1c] before:content-[""] before:absolute before:w-[380px] before:h-[420px] before:top-[-50%] before:left-[-50%] after:content-[""] after:absolute after:w-[380px] after:h-[420px] after:top-[-50%] after:left-[-50%] custom-linear-gradient`}
       >
         <form
           onSubmit={handleSubmit}
@@ -76,7 +76,7 @@ const Register = () => {
           <button
             type="button"
             className="btn-danger flex justify-between items-center"
-            onClick={()=>signUpProvider()}
+            onClick={() => signUpProvider()}
           >
             Continue with Google
             <GoogleIcon color="currentColor" />
