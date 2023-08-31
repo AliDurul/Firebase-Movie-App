@@ -49,7 +49,7 @@ Data fetched from the IMDB API and present it on website, categorized for easy a
   </ul>
 </div>
 
-[Live Link](https://lee-library.vercel.app)
+[Live Link](https://firebase-movie-app-two.vercel.app)
 
 ![LeeLibrirary](https://github.com/AliDurul/Lee-Library/assets/80897590/76766085-6395-4bbd-a285-6acbaab5bedc)
 
