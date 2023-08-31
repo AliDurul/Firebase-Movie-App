@@ -1,15 +1,69 @@
-<p>Clarusway<img align="right"
-  src="https://secure.meetupstatic.com/photos/event/3/1/b/9/600_488352729.jpeg"  width="15px"></p>
+<div id="user-content-toc">
+  <ul align="left">
+    <summary><h1 style="display: inline-block">Firebase Movie App</h1></summary>
+  </ul>
+</div>
 
-# Project-009 : Movie App (RP-09)
+<table>
+   <thead>
+        <tr>
+            <th>What's used in this app ?</th>
+            <th>How to run ?</th>
+            <th>Author</th>
+        </tr>
+    </thead>
+  <tbody>
+  <tr>
+    <td> 
+      <li> React  
+      <li> Tailwind CSS 
+      <li> Context-Api 
+      <li> Firebase Authorization 
+      <li> React-router-dom  
+      <li> Api-Server  
+    </td>
+    <td>  <h4>Once you clone the project</h4>  
+      
+ 1) run  `pnpm install`  or `yarn install` for node modules
+ 2) run `pnpm run dev` or `yarn run dev` for open development stage
+    
+   </td>
+    <td> <li> <a href="https://github.com/AliDurul">Take a look at my other projects</a> <li> <a href="https://www.linkedin.com/in/ali-durul/">Visit me on Linkedin</a> 
+  </tr>
+  <tr>
+    <td colspan="3"><h3>What is this project about ?</h3> 
+<p>
+Data fetched from the IMDB API and present it on website, categorized for easy access. Users can explore various movies and search for specific movie. User can see first 20 movies but can not access any detail about it unless login. To access more content and watch movie trailer, users need to log in, enabling personalized recommendations and a richer experience. 
+</p>
+    </td>
+  </tr>
+      </tbody>
+</table>
 
-## Description
 
-Project aims to create a Movie App.
 
-## Problem Statement
 
-- We are adding a new project to our portfolios. So you and your colleagues have started to work on the project.
+<div id="user-content-toc">
+  <ul align="left">
+    <summary><h2>How does my project look</h2></summary>
+  </ul>
+</div>
+
+[Live Link](https://lee-library.vercel.app)
+
+![LeeLibrirary](https://github.com/AliDurul/Lee-Library/assets/80897590/76766085-6395-4bbd-a285-6acbaab5bedc)
+
+<div id="user-content-toc">
+  <ul align="left">
+    <summary><h2>Feedback and Collaboration</h2></summary>
+  </ul>
+</div>
+I value your feedback and suggestions. If you have any comments, questions, or ideas for improvement regarding this project or any of my other projects, please don't hesitate to reach out. I'm always open to collaboration and welcome the opportunity to work on exciting projects together.
+
+Thank you for visiting my project. I hope you have a wonderful experience exploring it, and I look forward to connecting with you soon!
+
+
+
 
 ## Project Skeleton
 
@@ -44,166 +98,3 @@ SOLUTION
 └── yarn.lock
 ```
 
-![Project Snapshot](movie-app_structure.png)
-
-## Expected Outcome
-
-![Project Snapshot](movie-app.gif)
-
-## Objective
-
-Build a Movie App using ReactJS.
-
-### At the end of the project, following topics are to be covered;
-
-- HTML
-
-- CSS
-
-- JS
-
-- ReactJS
-
-### At the end of the project, students will be able to;
-
-- improve coding skills within HTML & CSS & JS & ReactJS.
-
-- use git commands (push, pull, commit, add etc.) and Github as Version Control System.
-
-## Steps to Solution
-
-- Before start you can watch these tutorials:
-  - https://www.youtube.com/watch?v=9bXhf_TELP4
-  - https://www.youtube.com/watch?v=vDT7EnUpEoo
-- Step 1 : Create React App using `npx create-react-app movie-app` and install firebase `npm i firebase` / `yarn add firebase`
-
-- Step 2 : Signup `https://firebase.google.com/` and create new app in firebase.
-  Firebase is a backed application development software that enables developers to develop iOS, Android and Web apps. It provides developers with a variety of tools and services to help them develop quality apps, grow their user base, and earn profit. It is built on Google’s infrastructure. Firebase offers a number of services, including: analytics,authentication, cloud messaging, realtime database, performance and test lab. Firebase is categorized as a NoSQL database program, which stores data in JSON-like documents.
-
-![Project 005 Snapshot](firebase-create-app.gif)
-
-- Step 3 : Use `https://firebase.google.com/docs/auth/web/start` and create `Authentication` operations.
-  - Add the Firebase Authentication JS codes in your `firebase.js` file and initialize Firebase Authentication:
-
-```jsx
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-
-// TODO: Replace the following with your app's Firebase project configuration at project settings part
-// See: https://firebase.google.com/docs/web/learn-more#config-object
-const firebaseConfig = {
-  // ...
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-// Initialize Firebase Authentication and get a reference to the service
-const auth = getAuth(app);
-```
-
-- Use this method to `Sign up new users` :
-
-```jsx
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-```
-
-- Go to https://console.firebase.google.com => Authentication => sign-in-method => `enable Email/password`
-- Use this method to `Sign in existing users` :
-
-```jsx
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
-signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-```
-
-- Use this method to `Set an authentication state observer and get user data` :
-
-```jsx
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-  } else {
-    // User is signed out
-  }
-});
-```
-
-- Go to https://console.firebase.google.com => Authentication => sign-in-method => `enable Google`
-- Use this method to `Authenticate Using Google with Popup` :
-
-```jsx
-import { GoogleAuthProvider } from "firebase/auth";
-
-const provider = new GoogleAuthProvider();
-
-signInWithPopup(auth, provider)
-  .then((result) => {
-    // The signed-in user info.
-    const user = result.user;
-  })
-  .catch((error) => {
-    // Handle Errors here.
-    console.log(error);
-  });
-```
-
-- Use this method to `Sign Out` :
-
-```jsx
-import { getAuth, signOut } from "firebase/auth";
-
-signOut(auth)
-  .then(() => {
-    // Sign-out successful.
-  })
-  .catch((error) => {
-    // An error happened.
-  });
-```
-
-- Use this method to `Send a password reset email` :
-
-```jsx
-import { getAuth, sendPasswordResetEmail } from "firebase/auth";
-
-sendPasswordResetEmail(auth, email)
-  .then(() => {
-    // Password reset email sent!
-  })
-  .catch((error) => {
-    const errorMessage = error.message;
-    // ..
-  });
-```
-
-- Step 4 : Signup `https://www.themoviedb.org/documentation/api` and get API key. In order to get data use `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`, to search movies use `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=`, to get movie details use `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}` and to get video key use `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`. Use `https://image.tmdb.org/t/p/w1280${poster_path}` for image `src`.
-
-- Step 5: You can use css frameworks like Bootstrap, Semantic UI, Material UI.
-
-- Step 6: Add project gif to your project and README.md file.
-
-## Notes
-
-- You can add additional functionalities to your app.
-
-**<p align="center">&#9786; Happy Coding &#9997;</p>**
