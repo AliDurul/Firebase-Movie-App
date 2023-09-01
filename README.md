@@ -70,30 +70,57 @@ Thank you for visiting my project. I hope you have a wonderful experience explor
 ```
 Movie App (folder)
 |
-|----readme.md    
-├── public
-│     └── index.html
-├── src
-│    ├── auth
-│    │     └── firebase.js
-│    ├── components
-│    │     ├── MovieCard.js
-│    │     └── Navbar.js
-│    ├── context
-│    │     └── AuthContext.js
-│    ├── pages
-│    │     ├── Login.js
-│    │     ├── Register.js
-│    │     ├── Main.js
-│    │     └── MovieDetail.js
-│    ├── router
-│    │     └── Router.js
-│    ├── App.js
-│    ├── App.css
-│    ├── index.js
-│    └── index.css
-├── package.json
-├── .env
-└── yarn.lock
+|-- public
+|   |-- favicon.ico
+|   |-- index.html
+|   |-- logo192.png
+|   |-- logo512.png
+|   |-- manifest.json
+|   |-- robots.txt
+|
+|-- src
+|   |-- assets\icons
+|   |    |-- GoogleIcon.js
+|   |    |-- avatar.png
+|   |
+|   |-- auth
+|   |   |-- firebase.js
+|   |
+|   |-- components
+|   |   |-- MovieCard.jsx
+|   |   |-- Navbar.jsx
+|   |   |-- Switch.jsx
+|   |   |-- VideoSection.jsx
+|   |
+|   |-- context
+|   |   |-- AuthContext.js
+|   |   |-- AuthContext.jsx
+|   |   |-- MovieContext.js
+|   |   |-- MovieContext.jsx
+|   |
+|   |-- helpers
+|   |   |-- ToastNotify.js
+|   |
+|   |-- pages
+|   |   |-- Login.jsx
+|   |   |-- Main.jsx
+|   |   |-- MovieDetail.jsx
+|   |   |-- Register.jsx
+|   |
+|   |-- router
+|   |   |-- AppRouter.jsx
+|   |   |-- PrivateRouter.jsx
+|   |
+|   |-- App.js
+|   |-- index.css
+|   |-- index.js
+|
+|-- .gitignore
+|-- README.md
+|-- package.json
+|-- pnpm-lock.yaml
+|-- tailwind.config.js
+|-- yarn.lock
+
 ```
 
